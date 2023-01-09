@@ -2,7 +2,7 @@
 // because windows made REN bad
 
 const { join, extname, basename } = require('path')
-const { readdirSync, renameSync, existsSync } = require('fs')
+const { readdirSync, renameSync, existsSync, writeFileSync } = require('fs')
 
 let folder = './weapons'
 
@@ -28,15 +28,6 @@ for(let i of list){
 
 // get folder stuff and craft into JSON
 
-// const { join, extname, basename } = require('path')
-// const { readdirSync, renameSync, writeFileSync } = require('fs')
-
-// let folder = './weapons', list = {}
-// for(let i of readdirSync(folder)){
-//     let ext = extname(i)
-//     let name = basename(i, ext)
-
-//     list[name] = i
-// }
-
-// writeFileSync('./weapon_list.json', JSON.stringify(list, null, 4))
+let newlist = {}
+list.forEach(i => newlist[i.slice(0, -5)] = i)
+writeFileSync('./weapon_list.json', JSON.stringify(newlist, null, 4))

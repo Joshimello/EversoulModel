@@ -29,6 +29,10 @@ for obj in selection:
     # move the origin to geometry center
     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='BOUNDS')
 
+    obj.location[0] = 0
+    obj.location[1] = 0
+    obj.location[2] = 0
+
     view_layer.objects.active = obj
 
     name = bpy.path.clean_name(obj.name)
