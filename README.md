@@ -1,5 +1,5 @@
 # EversoulScrape
-scraping a random gatcha game assets for fun
+scraping a random gatcha game assets for fun  
 so far only for weapons
 
 ## How
