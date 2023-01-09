@@ -10,24 +10,21 @@ let list = readdirSync(folder)
 
 console.log(list.length)
 
-for(let i of list){
-    let ext = extname(i)
-    let name = basename(i, ext)
+// for(let i of list){
+//     let ext = extname(i)
+//     let name = basename(i, ext)
 
-    let newname = name.split('_')[1].toLowerCase()
+//     let newname = name.split('_')[1].toLowerCase()
 
-    let suffix = 0
-    if(existsSync(join(folder, newname+String(suffix)+ext))){
-        while(existsSync(join(folder, newname+String(suffix)+ext))){
-            suffix++
-        }
-    }
+//     let suffix = 0
+//     if(existsSync(join(folder, newname+String(suffix)+ext))){
+//         while(existsSync(join(folder, newname+String(suffix)+ext))){
+//             suffix++
+//         }
+//     }
 
-    renameSync(join(folder, i), join(folder, newname+String(suffix)+ext))
-}
+//     renameSync(join(folder, i), join(folder, newname+String(suffix)+ext))
+// }
 
 // get folder stuff and craft into JSON
-
-let newlist = {}
-list.forEach(i => newlist[i.slice(0, -5)] = i)
-writeFileSync('./weapon_list.json', JSON.stringify(newlist, null, 4))
+writeFileSync('./weapon_list.json', JSON.stringify(list, null, 4))
